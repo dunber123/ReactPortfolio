@@ -1,185 +1,85 @@
 import React from "react";
 import "./experience.css";
 import { BsPatchCheckFill } from "react-icons/bs";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+
+const Article = ({ title, experienceLevel }) => {
+	return (
+		<article className="experience__details">
+			<BsPatchCheckFill className="experience__details-icon" />
+			<div>
+				<h4>{title}</h4>
+				<small className="text-light">{experienceLevel}</small>
+			</div>
+		</article>
+	);
+};
 
 const Experience = () => {
+	const variants = {
+		visible: { scale: 1, opacity: 1 },
+		hidden: { scale: 0.7, opacity: 0 },
+	};
 	return (
 		<section id="experience">
 			<h5>What Skills I Have</h5>
 			<h2>My Experience</h2>
+			<AnimatePresence>
+				<motion.div
+					initial="hidden"
+					whileInView="visible"
+					transition={{
+						staggerChildren: 0.5,
+					}}
+					className="container experience__container"
+				>
+					<motion.div className="experience__frontend" variants={variants}>
+						<h3>Frontend Development</h3>
+						<div className="experience__content">
+							<Article title="HTML" experienceLevel="Experienced" />
+							<Article title="CSS" experienceLevel="Intermediate" />
+							<Article title="JavaScript" experienceLevel="Experienced" />
+							<Article title="Bootstrap" experienceLevel="Experienced" />
+							<Article title="Vue" experienceLevel="Experienced" />
+							<Article title="React" experienceLevel="Intermediate" />
+						</div>
+					</motion.div>
 
-			<div className="container experience__container">
-				<div className="experience__frontend">
-					<h3>Frontend Development</h3>
-					<div className="experience__content">
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>HTML</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>CSS</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>JavaScript</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Bootstrap</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Vue</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>React</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-					</div>
-				</div>
-				{/* END OF FRONTEND */}
+					{/* END OF FRONTEND */}
 
-				<div className="experience__backend">
-					<h3>Backend Development</h3>
-					<div className="experience__content">
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Node JS</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Express</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Python</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Django</h4>
-								<small className="text-light">Basic</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Flask</h4>
-								<small className="text-light">Basic</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>PHP</h4>
-								<small className="text-light">Basic</small>
-							</div>
-						</article>
-					</div>
-				</div>
+					<motion.div className="experience__backend" variants={variants}>
+						<h3>Backend Development</h3>
+						<div className="experience__content">
+							<Article title="Node.JS" experienceLevel="Experienced"></Article>
+							<Article title="Express" experienceLevel="Experienced"></Article>
+							<Article title="Python" experienceLevel="Intermediate"></Article>
+							<Article title="Django" experienceLevel="Basic"></Article>
+							<Article title="Flask" experienceLevel="Basic"></Article>
+							<Article title="PHP" experienceLevel="Basic"></Article>
+						</div>
+					</motion.div>
 
-				<div className="experience__database">
-					<h3>Database Experience</h3>
-					<div className="experience__content">
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>MySQL</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>MongoDB</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Oracle</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>MSSQL</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-					</div>
-				</div>
-				<div className="experience__others">
-					<h3>Other Experience</h3>
-					<div className="experience__content">
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Github</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Git</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Postman</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>Visual Studio Code</h4>
-								<small className="text-light">Experienced</small>
-							</div>
-						</article>
-						<article className="experience__details">
-							<BsPatchCheckFill className="experience__details-icon" />
-							<div>
-								<h4>AWS</h4>
-								<small className="text-light">Intermediate</small>
-							</div>
-						</article>
-					</div>
-				</div>
-			</div>
+					<motion.div className="experience__database" variants={variants}>
+						<h3>Database Experience</h3>
+						<div className="experience__content">
+							<Article title="MySQL" experienceLevel="Experienced"></Article>
+							<Article title="MongoDB" experienceLevel="Intermediate"></Article>
+							<Article title="Oracle" experienceLevel="Intermediate"></Article>
+							<Article title="MSSQL" experienceLevel="Intermediate"></Article>
+						</div>
+					</motion.div>
+					<motion.div className="experience__others" variants={variants}>
+						<h3>Other Experience</h3>
+						<div className="experience__content">
+							<Article title="Github" experienceLevel="Experienced"></Article>
+							<Article title="Git" experienceLevel="Intermediate"></Article>
+							<Article title="Postman" experienceLevel="Experienced"></Article>
+							<Article title="Visual Studio Code" experienceLevel="Experienced"></Article>
+							<Article title="AWS" experienceLevel="Intermediate"></Article>
+						</div>
+					</motion.div>
+				</motion.div>
+			</AnimatePresence>
 		</section>
 	);
 };
